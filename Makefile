@@ -40,7 +40,7 @@ train:
 #################################################################################
 
 ## Process raw data into processed data
-data: requirements
+data: 
 	$(PYTHON_INTERPRETER) $(PROJECT_NAME)/data/make_dataset.py
 
 #################################################################################

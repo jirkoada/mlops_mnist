@@ -1,2 +1,2 @@
-from mlops_classifier.models.model import MyNeuralNet
-from mlops_classifier.predict_model import predict
+from src.models.model import MyAwesomeModel
+from src.predict_model import predict
