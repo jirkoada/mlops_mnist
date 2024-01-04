@@ -177,3 +177,7 @@ cython_debug/
 .idea/
 
 conda_env/
+data/
+models/
+/data
+/models
