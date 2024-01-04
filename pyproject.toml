@@ -7,7 +7,7 @@ name = "mlops_classifier"
 version = "0.0.1"
 description = "A project to learn to apply different MLOps concepts on practice."
 authors = [
-  { name = "Mikhail Poludin", email = "your@email.com" },
+  { name = "Adam Jirkovsky", email = "your@email.com" },
 ]
 license = { file = "LICENSE" }
 readme = "README.md"
