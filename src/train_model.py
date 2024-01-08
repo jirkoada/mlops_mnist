@@ -3,6 +3,7 @@ import torch
 from torch import nn, optim
 from models.model import MyAwesomeModel
 import matplotlib.pyplot as plt
+import wandb
 
 from data.make_dataset import mnist
 
@@ -19,8 +20,11 @@ def cli():
 @click.option("--bs", default=64, help="batch size")
 def train(lr, epochs, bs):
     """Train a model on MNIST."""
-    
-    # TODO: Implement training loop here
+
+    wandb.init(project="corruptmnist",
+               config={"lr": lr, "epochs": epochs, "bs": bs},
+               tags=["training", "corruptmnist"])
+
     model = MyAwesomeModel()
     train_set = torch.load('data/processed/corruptmnist/train.pt')
     train_loader = torch.utils.data.DataLoader(train_set, batch_size=bs, shuffle=True)
@@ -66,6 +70,10 @@ def train(lr, epochs, bs):
             acc = correct / len(test_loader.dataset)
             print(f"Accuracy: {acc*100}%")
             test_losses.append(val_loss / len(test_loader))
+
+            wandb.log({"train_loss": train_losses[-1],
+                    "val_loss": test_losses[-1],
+                    "val_acc": acc})
 
     plt.figure()
     plt.plot(train_losses, label="Training loss")
