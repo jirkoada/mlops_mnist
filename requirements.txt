@@ -68,7 +68,6 @@ markdown-it-py==3.0.0
 MarkupSafe==2.1.3
 matplotlib==3.8.2
 mdurl==0.1.2
-mlops_classifier @ file:.
 mpmath==1.3.0
 multidict==6.0.4
 networkx==3.2.1
@@ -126,7 +125,6 @@ six==1.16.0
 smmap==5.0.1
 snakeviz==2.2.0
 sqltrie==0.11.0
-src @ file:./src
 sympy==1.12
 tabulate==0.9.0
 tensorboard==2.15.1
