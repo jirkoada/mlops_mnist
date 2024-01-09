@@ -5,8 +5,6 @@ from models.model import MyAwesomeModel
 import matplotlib.pyplot as plt
 import wandb
 
-from data.make_dataset import mnist
-
 
 @click.group()
 def cli():
@@ -29,7 +27,7 @@ def train(lr, epochs, bs):
     train_set = torch.load('data/processed/corruptmnist/train.pt')
     train_loader = torch.utils.data.DataLoader(train_set, batch_size=bs, shuffle=True)
 
-    test_set = torch.load('data/processed/corruptmnist/train.pt')
+    test_set = torch.load('data/processed/corruptmnist/test.pt')
     test_loader = torch.utils.data.DataLoader(test_set, batch_size=bs, shuffle=True)
 
     optimizer = optim.Adam(model.parameters(), lr=lr)
@@ -117,4 +115,4 @@ cli.add_command(evaluate)
 
 
 if __name__ == "__main__":
-    cli()
+    train()

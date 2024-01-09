@@ -25,6 +25,11 @@ class MyAwesomeModel(nn.Module):
         self.out = nn.Linear(32 * 7 * 7, 10)
 
     def forward(self, x):
+        print(x.shape)
+        if x.ndim != 3:
+            raise ValueError('Expected input to be a 3D tensor')
+        if x.shape[0] != 1 or x.shape[1] != 28 or x.shape[2] != 28:
+            raise ValueError('Expected sample shape [1, 28, 28]')
         x = x.unsqueeze(1) 
         x = self.conv1(x)
         x = self.conv2(x)

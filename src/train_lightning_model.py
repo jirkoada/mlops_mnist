@@ -56,7 +56,7 @@ def train(lr, epochs, bs):
     train_set = torch.load('data/processed/corruptmnist/train.pt')
     train_loader = torch.utils.data.DataLoader(train_set, batch_size=bs, shuffle=True)
 
-    test_set = torch.load('data/processed/corruptmnist/train.pt')
+    test_set = torch.load('data/processed/corruptmnist/test.pt')
     test_loader = torch.utils.data.DataLoader(test_set, batch_size=bs, shuffle=False)
 
     trainer.fit(model, train_loader, test_loader)
